@@ -55,7 +55,7 @@ def main():
         print('Cert created')
     except:
         pass
-    ssl = pexpect.spawn('certbot certonly --preferred-challenges dns --manual --domain "irll.net" --domain "*.irll.net" --work-dir Cert/ --logs-dir Cert/ --config-dir Cert/ --fullchain-path ./ --key-path ./', encoding='utf-8')
+    ssl = pexpect.spawn(f'certbot certonly --preferred-challenges dns --manual --domain {getenv("DOMAIN")} --domain {getenv("WILDCARD")} --work-dir Cert/ --logs-dir Cert/ --config-dir Cert/ --fullchain-path ./ --key-path ./', encoding='utf-8')
 
 #'''
 #Enter email address (used for urgent renewal and security notices) (Enter 'c' to cancel):
