@@ -1,8 +1,9 @@
 import pexpect
-from os import mkdir, getenv
+from os import mkdir, getenv, listdir
 from shutil import rmtree
 import boto3
 from dotenv import load_dotenv
+import time
 
 load_dotenv()
 
@@ -130,7 +131,7 @@ def main():
     ssl.sendline()
     time.sleep(10)
 
-    if 'fullchain.pem' in os.listdir('.'):
+    if 'fullchain.pem' in listdir('.'):
         upload(session)
 
     rmtree('Cert')
